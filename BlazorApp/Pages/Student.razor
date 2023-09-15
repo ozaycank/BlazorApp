@@ -12,10 +12,11 @@
     public string? StudentList { get; set; }
     private string? saveMessage;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        StudentList ="Büşra Özay Can Berkay Özge";
+        StudentList = "Büşra Özay Can Berkay Özge";
     }
+
 
     private void Save(MouseEventArgs e)
     {

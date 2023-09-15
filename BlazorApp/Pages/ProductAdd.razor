@@ -1,0 +1,43 @@
+﻿@page "/productadd"
+@using Microsoft.AspNetCore.Components.Forms
+
+@using BlazorApp.Models;
+<h3>ProductAdd</h3>
+
+
+<EditForm Model="@productAddModel" OnInvalidSubmit="@HandleSave">
+    <DataAnnotationsValidator></DataAnnotationsValidator> 
+    @* <ValidationSummary></ValidationSummary> *@
+    <div class="form-group">
+        <h5>Product Name:</h5>
+        <InputText placeholder="Product Name" class="form-control" id="productName" @bind-Value="@productAddModel.ProductName"></InputText>
+        <ValidationMessage For="@(() => productAddModel.ProductName)"></ValidationMessage>
+
+    </div>
+
+    <div class="form-group">
+        <h5>Description</h5>
+        <InputTextArea placeholder="Description" class="form-control" id="description" @bind-Value="@productAddModel.Description"></InputTextArea>
+        <ValidationMessage For="@(() => productAddModel.Description)"></ValidationMessage>
+    </div>
+    
+    <div class="form-group">
+        <h5>Category</h5>
+        <InputSelect placeholder="Category" class="form-control" id="categoryId" @bind-Value="@productAddModel.CategoryId">
+            <option>
+                Select
+            </option>
+            <option value="1">Drink</option>
+            <option value="2">Food</option>
+        </InputSelect>
+        <ValidationMessage For="@(() => productAddModel.CategoryId)"></ValidationMessage>
+    </div>
+    <button class="btn btn-outline-dark" type="submit">Save</button>
+</EditForm>
+@code {
+    ProductAddModel productAddModel = new ProductAddModel();
+    private void HandleSave()
+    {
+        Console.WriteLine("Product Added!");
+    }
+}

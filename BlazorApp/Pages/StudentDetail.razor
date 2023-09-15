@@ -1,0 +1,8 @@
+﻿<h3>StudentDetail for @StudentName</h3>
+<button class="btn btn-primary" @onclick="OnClick">Save</button>
+@code {
+    [Parameter]
+    public string? StudentName { get; set; }
+    [Parameter]
+    public  EventCallback<MouseEventArgs> OnClick{ get; set; }
+}

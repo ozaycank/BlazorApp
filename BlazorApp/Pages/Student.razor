@@ -1,0 +1,24 @@
+﻿@page "/students"
+@using Microsoft.AspNetCore.Components
+@using System.Net.Http
+@using System.Threading.Tasks
+<button class="btn btn-primary" @onclick="@Save">Save Base Component</button>
+<h3>Student List</h3>
+<h5>@StudentList</h5>
+<StudentDetail StudentName="Özay" OnClick="@Save"></StudentDetail>
+<h5>@saveMessage</h5>
+
+@code {
+    public string? StudentList { get; set; }
+    private string? saveMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        StudentList ="Büşra Özay Can Berkay Özge";
+    }
+
+    private void Save(MouseEventArgs e)
+    {
+        saveMessage = "Saved!";
+    }
+}
